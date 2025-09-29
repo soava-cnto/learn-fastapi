@@ -7,3 +7,6 @@ activer .venv
 Lancer le serveur
 uvicorn main:app --reload
 
+# main → correspond au nom du fichier (main.py)
+
+# app → correspond à l’instance de FastAPI qu’on a créée
