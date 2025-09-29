@@ -1,0 +1,9 @@
+installer .venv
+py -3 -m venv .venv
+
+activer .venv
+.venv\Scripts\Activate.ps1
+
+Lancer le serveur
+uvicorn main:app --reload
+

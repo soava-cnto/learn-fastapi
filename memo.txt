@@ -1,0 +1,1 @@
+basé sur Starlette (pour la partie web) et Pydantic (pour la validation des données).
