@@ -18,6 +18,16 @@ products = []
 def get_products():
     return {"products": products}
 
+# --- Route GET : trouver un produit par id ---
+@app.get("/products/{id}")
+def get_product(id: int):
+    # On cherche le produit dont l'id correspond
+    for product in products:
+        if product.id == id:
+            return {"product": product}
+    # Si rien trouvé → on renvoie une erreur
+    return {"error": f"Produit avec id={id} non trouvé"}
+
 # --- Route POST : ajouter un produit ---
 @app.post("/products/")
 def add_product(product: Product):
