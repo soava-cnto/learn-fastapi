@@ -1,1 +1,8 @@
+# Fichiers compilés Python
+*.py[cod]  # fichiers compilés Python
+__pycache__/  # dossier de cache Python
+*$py.class  # fichiers de classe Python compilés
+
 .venv
+
+__pycache__

@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi import HTTPException
 from pydantic import BaseModel
 
 app = FastAPI()
@@ -21,12 +22,12 @@ def get_products():
 # --- Route GET : trouver un produit par id ---
 @app.get("/products/{id}")
 def get_product(id: int):
-    # On cherche le produit dont l'id correspond
     for product in products:
         if product.id == id:
             return {"product": product}
-    # Si rien trouvé → on renvoie une erreur
-    return {"error": f"Produit avec id={id} non trouvé"}
+    # Si non trouvé → on envoie une erreur 404
+    raise HTTPException(status_code=404, detail=f"Produit avec id={id} non trouvé")
+
 
 # --- Route POST : ajouter un produit ---
 @app.post("/products/")
