@@ -6,3 +6,5 @@ __pycache__/  # dossier de cache Python
 .venv
 
 __pycache__
+
+quiz.txt
