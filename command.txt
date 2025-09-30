@@ -9,4 +9,4 @@ uvicorn main:app --reload
 
 # main → correspond au nom du fichier (main.py)
 
-# app → correspond à l’instance de FastAPI qu’on a créée
+# app → correspond à l’instance de FastAPI qu’on a crééegit

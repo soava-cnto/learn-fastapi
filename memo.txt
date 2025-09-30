@@ -1,1 +1,15 @@
 basé sur Starlette (pour la partie web) et Pydantic (pour la validation des données).
+
+Si je veux que max_price soit obligatoire dans /filter_products/, comment dois-je modifier la fonction ?
+
+on peut le passer en Path Parameter, mais si on veut juste qu’il soit obligatoire en Query Parameter, on fait :
+
+from fastapi import Query
+
+@app.get("/filter_products/")
+def filter_products(max_price: int = Query(...)):
+    filtered = [p for p in products if p["price"] <= max_price]
+    return {"products": filtered, "total": len(filtered)}
+
+Ici Query(...) = signifie "paramètre obligatoire".
+Donc /filter_products/ sans ?max_price=xxx renverra une erreur 422.
